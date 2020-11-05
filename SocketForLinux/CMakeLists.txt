@@ -3,4 +3,5 @@ project(Socket C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Socket main.c)
+add_executable(server server.c)
+target_link_libraries(server -lpthread)

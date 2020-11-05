@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/tmp/tmp.O8BP6hyO8P/server.c
+stdio.h
+-
+unistd.h
+-
+ctype.h
+-
+arpa/inet.h
+-
+netinet/in.h
+-
+strings.h
+-
+
