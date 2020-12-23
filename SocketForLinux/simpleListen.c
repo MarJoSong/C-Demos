@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <strings.h>
 #include <pthread.h>
+#include "hexdump.h"
 
 #define MAXLINE 1024
 
@@ -41,7 +42,7 @@ int main(int argc, char *argv[])
     struct sockaddr_in cliaddr;
     bzero(&cliaddr, cliaddr_len);
 
-    int connectfd = accept(listenfd, &cliaddr, &cliaddr_len);
+    int connectfd = accept(listenfd, (struct sockaddr *)&cliaddr, &cliaddr_len);
 
     int n;
     char buf[MAXLINE], ip[16];
@@ -56,6 +57,8 @@ int main(int argc, char *argv[])
         printf("Read [%d] bytes from host:[%s] on port:[%d]\n", n,
                inet_ntop(PF_INET, &cliaddr.sin_addr, ip, MAXLINE),
                ntohs(cliaddr.sin_port));
+	hexdump(buf, n);
+
         for (int i = 0; i < n; i++) {
             buf[i] = (char)toupper(buf[i]);
         }

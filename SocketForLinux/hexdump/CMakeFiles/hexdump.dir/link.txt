@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC   -shared -Wl,-soname,libhexdump.so -o ../lib/libhexdump.so CMakeFiles/hexdump.dir/hexdump.c.o   -L/mnt/d/git/C-Demos/SocketForLinux/lib 
